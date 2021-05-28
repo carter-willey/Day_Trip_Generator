@@ -2,8 +2,8 @@
 
 let destinationsArray = ["Chicago", "Madison", "Minneapolis", "Green Bay"];
 let transportationArray = ["Bus", "Train", "Car", "Plane"];
-let entertainmentArray = ["visit a museum", "walk through downtown", "go shopping", "see the nightlife"];
-let restaurantArray = ["Pizza Shop", "American Style Restaurant", "Fine Dining", "Food Trucks"];
+let entertainmentArray = ["visiting a museum", "walking through downtown", "going shopping", "seeing the nightlife"];
+let restaurantArray = ["Pizza Shop", "American Style Restaurant", "Fine Dining Restaurant", "Food Truck"];
 
 //WILL USE THESE LATER AFTER MVP IS COMPLETE
 // let minneapolisRestaurants = ["Hell's Kitchen", "Al's Breakfast", "Alma", "French Meadow Bakery"];
@@ -26,3 +26,26 @@ function chooseActivities(destinations, transportation, entertainment, restauran
 
   return [randomDestination, randomTransport, randomEntertainment, randomRestaurant];
 }
+
+function startProgram(){
+  let userTravelResponse = window.confirm("Would you like to generate a day trip plan? Click OK to confirm or Cancel to opt out!");
+  if(userTravelResponse){
+    let isUserHappy = false;
+    let itenerary;
+    while(!isUserHappy){   //we want to stop this loop once the user is happy with the itenerary
+    itenerary = chooseActivities(destinationsArray, transportationArray, entertainmentArray, restaurantArray,);
+    userTravelResponse = window.confirm("We suggest going to " + itenerary[0] + " by " + itenerary[1] + "! Once you are there, we suggest " + itenerary[2] + ". For dinner we recommend eating at a " + itenerary[3] + "! Do you like this itenerary or would you like to change it? Click OK to confirm your itenerary and print it to the console or Cancel for a new itenerary!" );
+    
+    
+    if(userTravelResponse){
+      isUserHappy = true;
+      console.log("We suggest going to " + itenerary[0] + " by " + itenerary[1] + "! Once you are there, we suggest " + itenerary[2] + ". For dinner we recommend eating at a " + itenerary[3] + "!");
+      }
+    }
+  }
+  else{
+    alert("Check us out next time you want a travel itenerary!");
+  }
+}
+
+startProgram();
